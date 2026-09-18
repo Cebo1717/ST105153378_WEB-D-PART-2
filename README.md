@@ -105,4 +105,19 @@ From WEDE5020 Part 1 Marking Rubric:
 - W3C. *CSS Variables*. https://www.w3.org/TR/css-variables-1/
 
 
-GIT
+## Screenshot Evidence - Responsive Design
+
+### Tablet - iPad Pro 13 (1024px)
+![Tablet Evidence](IMG/screenshots/iPad_Pro_13.png)
+
+- Nav horizontal, feature-grid 2 cols, product-grid 2 cols
+- Breakpoint: @media (max-width: 900px)
+
+### Mobile - iPhone SE (375px)
+![Mobile Evidence](IMG/screenshots/iPhone_SE.png)
+
+- Nav vertical column (flex-direction: column), grid 1 col
+- Breakpoint: @media (max-width: 600px)
+
+### PDF Evidence
+Full PDF with captions: `360WAVING_Responsive_Screenshots_ST10515337.pdf`
