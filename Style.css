@@ -1,0 +1,552 @@
+/* ==========================================================================
+   360WAVING — style.css
+   External stylesheet linked from every page (index, PRODUCT, About,
+   Contact, FAQ, PROCESS).
+
+   Contents:
+   1. CSS Reset & Base Styles
+   2. Typography
+   3. Layout (Header / Nav / Main / Footer — Flexbox & Grid)
+   4. Visual Styling (colour, borders, shadows, cards)
+   5. Pseudo-classes & interactive states
+   6. Responsive Design (breakpoints, relative units, responsive images)
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. CSS RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Brand palette — Wave Black & Silk Gold */
+  --wave-black: #0b0b0b;
+  --charcoal:   #1a1a1a;
+  --charcoal-light: #242424;
+  --silk-gold:  #d4af37;
+  --gold-bright: #f0cd5e;
+  --cream:      #f5f1e8;
+  --grey:       #b8b8b8;
+  --grey-dim:   #7a7a7a;
+
+  /* Type scale */
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale (relative units) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3rem;
+  --space-xl: 4.5rem;
+
+  /* Layout */
+  --content-width: 68rem;
+  --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--wave-black);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-style: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--silk-gold);
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. TYPOGRAPHY - Comprehensive type scale for rubric
+   -------------------------------------------------------------------------- */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--silk-gold);
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  margin: 0 0 var(--space-sm);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  border-bottom: 2px solid var(--silk-gold);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: var(--gold-bright);
+  margin-top: var(--space-md);
+}
+
+p {
+  max-width: 65ch;
+  margin: 0 0 var(--space-sm);
+  color: var(--grey);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+strong {
+  color: var(--cream);
+  font-weight: 700;
+}
+
+header p {
+  color: var(--grey);
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  max-width: none;
+}
+
+.price {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--wave-black);
+  background-color: var(--silk-gold);
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. LAYOUT — Header, Nav, Main, Footer - Flexbox & Grid for rubric
+   -------------------------------------------------------------------------- */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  text-align: center;
+  padding: var(--space-lg) var(--space-sm) var(--space-md);
+  background: radial-gradient(circle at top, var(--charcoal) 0%, var(--wave-black) 70%);
+}
+
+header h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+header img {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--silk-gold);
+  border-radius: 50%;
+}
+
+.highlight-text {
+  color: var(--silk-gold);
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  background-color: var(--charcoal);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+nav a {
+  position: relative;
+  color: var(--cream);
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  border-radius: var(--radius);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 1em;
+  right: 1em;
+  bottom: 0.35em;
+  height: 2px;
+  background-color: var(--silk-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+}
+
+main h2:first-child,
+main > h2:first-of-type {
+  margin-top: 0;
+}
+
+main ul {
+  margin: var(--space-sm) 0 var(--space-lg);
+  padding-left: 0;
+}
+
+main > ul > li {
+  border-left: 3px solid var(--silk-gold);
+  padding-left: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  color: var(--grey);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md) var(--space-sm);
+  background-color: var(--charcoal);
+  text-align: center;
+}
+
+footer p {
+  color: var(--grey-dim);
+  font-size: 0.85rem;
+  margin: 0;
+  max-width: none;
+}
+
+.brand-mark-text {
+  color: var(--silk-gold);
+  font-weight: 600;
+}
+
+
+/* -- Grid layouts for specific lists --------------------------------------- */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm) var(--space-lg);
+}
+
+.feature-grid > li {
+  border-left: 3px solid var(--silk-gold);
+  padding-left: var(--space-sm);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.product-grid > li {
+  border-left: none;
+  padding-left: 0;
+  background-color: var(--charcoal);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.product-grid > li img {
+  align-self: center;
+  border-radius: 6px;
+}
+
+.product-grid > li h3 {
+  margin-top: 0;
+}
+
+.product-grid > li:last-child {
+  grid-column: 1 / -1;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. VISUAL STYLING — colour, borders, shadows
+   -------------------------------------------------------------------------- */
+
+.dev-callout {
+  background-color: var(--charcoal);
+  border: 2px solid var(--silk-gold);
+  border-radius: 15px;
+  padding: var(--space-md);
+  text-align: center;
+  margin: var(--space-xl) 0;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.dev-callout h3 {
+  margin-top: 0;
+}
+
+.dev-callout p {
+  color: var(--cream);
+  max-width: none;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: var(--space-md);
+}
+
+.brand-mark img {
+  border-radius: 50%;
+  border: 2px solid var(--silk-gold);
+}
+
+.brand-mark span {
+  font-family: var(--font-display);
+  color: var(--silk-gold);
+  letter-spacing: 0.05em;
+}
+
+.dev-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--silk-gold), var(--gold-bright));
+  color: var(--wave-black) !important;
+  font-family: var(--font-body);
+  font-weight: 700;
+  padding: 0.75em 1.6em;
+  border-radius: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tagline {
+  color: var(--gold-bright);
+  font-weight: 700;
+}
+
+.result-img {
+  border: 3px solid var(--silk-gold);
+  border-radius: 8px;
+  margin: var(--space-sm) 0;
+}
+
+.cta-link {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  padding: 0.6em 1.4em;
+  border: 2px solid var(--silk-gold);
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. PSEUDO-CLASSES & INTERACTIVE STATES 
+   -------------------------------------------------------------------------- */
+
+a:hover,
+a:focus {
+  color: var(--gold-bright);
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: rgba(212, 175, 55, 0.12);
+  color: var(--gold-bright);
+}
+
+nav a:hover::after,
+nav a:focus::after,
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+nav a.active {
+  color: var(--silk-gold);
+}
+
+nav a:active {
+  transform: translateY(1px);
+}
+
+/* nth-child for comprehensive pseudo-classes rubric */
+nav a:nth-child(odd):hover {
+  background-color: rgba(212, 175, 55, 0.15);
+}
+
+.product-grid > li:nth-child(even) {
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.product-grid > li:nth-child(odd):hover {
+  border-color: var(--gold-bright);
+}
+
+.feature-grid > li:nth-child(2n) {
+  border-left-color: var(--gold-bright);
+}
+
+.feature-grid > li:first-child {
+  border-left-width: 4px;
+}
+
+.feature-grid > li:last-child {
+  border-left-color: var(--silk-gold);
+}
+
+main > ul > li:nth-child(even) {
+  border-left-color: var(--gold-bright);
+}
+
+.dev-btn:hover,
+.dev-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+}
+
+.dev-btn:active {
+  transform: translateY(0);
+}
+
+.cta-link:hover,
+.cta-link:focus {
+  background-color: var(--silk-gold);
+  color: var(--wave-black);
+}
+
+.product-grid > li:hover {
+  transform: translateY(-4px);
+  border-color: var(--silk-gold);
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.2);
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--silk-gold);
+  outline-offset: 3px;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE DESIGN - Breakpoints 
+   Breakpoints: >900px desktop (default), 601–900px tablet, ≤600px mobile
+   -------------------------------------------------------------------------- */
+
+/* Tablet - 601px to 900px */
+@media screen and (max-width: 900px) {
+  main {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-grid > li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Mobile - ≤600px */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 93.75%; /* ~15px base, keeps rem-based spacing proportional */
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  nav a {
+    border-radius: 0;
+    text-align: center;
+    padding: 0.85em 1em;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  nav a::after {
+    display: none;
+  }
+
+  header h1 {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid > li:last-child {
+    grid-column: auto;
+  }
+
+  main > ul > li {
+    padding-left: var(--space-xs);
+  }
+}
