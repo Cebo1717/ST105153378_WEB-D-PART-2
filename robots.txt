@@ -1,0 +1,7 @@
+# robots.txt - tells search engine crawlers what they may index
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /data-fallback
+
+Sitemap: https://360waving.netlify.app/sitemap.xml

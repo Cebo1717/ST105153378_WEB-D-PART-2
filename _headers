@@ -1,0 +1,14 @@
+# Security + performance headers (read by Netlify; ignored by GitHub Pages)
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/IMG/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=86400
+/style.css
+  Cache-Control: public, max-age=86400
