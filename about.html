@@ -1,96 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - 360WAVING</title>
+  <title>About 360WAVING | Durban Wave Culture Brand Story</title>
+  <!-- SEO: unique title, description and keywords for this page -->
+  <meta name="description" content="Meet 360WAVING: a Durban beauty, grooming and streetwear brand founded in 2024 to make authentic wave products accessible and affordable across South Africa.">
+  <meta name="keywords" content="about 360WAVING, Durban wave brand, wave culture South Africa, authentic wave products, mission, vision">
+  <meta name="author" content="Z Tembe - ST10515337">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://360waving.netlify.app/about.html">
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="360WAVING">
+  <meta property="og:title" content="About 360WAVING | Durban Wave Culture Brand Story">
+  <meta property="og:description" content="Meet 360WAVING: a Durban beauty, grooming and streetwear brand founded in 2024 to make authentic wave products accessible and affordable across South Africa.">
+  <meta property="og:url" content="https://360waving.netlify.app/about.html">
+  <meta property="og:image" content="https://360waving.netlify.app/IMG/og-360waving.jpg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Security: Content Security Policy + referrer policy (only trusted sources may load) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://cdnjs.cloudflare.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="IMG/favicon.png">
+  <link rel="apple-touch-icon" href="IMG/apple-touch-icon.png">
+  <!-- Fonts + stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Header Section: Logo + Brand Name + Tagline - Flexbox column centered - Addresses Part 1 HTML Layout -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Header: logo + brand (flexbox column) -->
 <header>
-  <h1>
-  <img src="IMG/360wavinglogo.jpg" alt="360WAVING Logo">
-  <span>360WAVING</span>
-  </h1>
+  <a class="brand" href="index.html" aria-label="360WAVING - go to the home page">
+    <img src="IMG/360waving-logo.webp" alt="360WAVING round black and gold logo" width="80" height="80">
+    <span>360WAVING</span>
+  </a>
   <p>360 Waves All Day - GET YOUR WAVES RIGHT</p>
 </header>
 
-<!-- Nav Section: Main navigation - Standardised across all 6 pages - Fixes Part 1 Menu/Links 4/5 (inconsistent casing about.html vs About.html) -->
-<nav>
+<!-- Navigation: same order on all 8 pages, current page highlighted. Menu button shows on mobile. -->
+<nav aria-label="Main navigation">
+  <button type="button" class="nav-toggle" aria-expanded="false">☰ Menu</button>
   <a href="index.html">Home</a>
-  <a href="PRODUCT.html">Products</a>
-  <a href="About.html" class="active">About</a>
-  <a href="Contact.html">Contact</a>
-  <a href="FAQ.html">FAQ</a>
-  <a href="PROCESS.html">How To Get Waves</a>
+  <a href="products.html">Products</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html" class="active" aria-current="page">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="enquiry.html">Enquiry</a>
+  <a href="faq.html">FAQ</a>
+  <a href="how-to-get-waves.html">How To Get Waves</a>
+  <button type="button" class="cart-btn" aria-label="Open shopping cart">🛒 Cart <span class="cart-count" aria-hidden="true">0</span></button>
 </nav>
 
 <hr>
 
-<!-- Main Content: About Us - Brand story, mission, vision - Addresses Part 1 Sufficient Content 3/5 by adding depth -->
-<main>
-  <h2>About Us</h2>
-  <!-- Who We Are Section -->
-  <p><strong>Who We Are:</strong> 360WAVING is a Beauty, Grooming & Streetwear brand based in Durban, KwaZulu-Natal. We are an e-commerce brand with nationwide delivery. We started in 2024 as an Instagram page selling durags and wave brushes.</p>
-  
-  <p>360WAVING started in 2024. We love waves. We want everyone to have 360 waves. We saw a problem - wavers in SA were paying too much for imported, overpriced and often fake products. Our mission is to make elite wave culture accessible, affordable and authentic.</p>
+<main id="main">
+  <h1>About Us</h1>
+  <p data-reveal><strong>Who We Are:</strong> 360WAVING is a Beauty, Grooming &amp; Streetwear brand based in Durban, KwaZulu-Natal. We are an e-commerce brand with nationwide delivery. We started in 2024 as an Instagram page selling durags and wave brushes.</p>
+  <p data-reveal>We love waves. We want everyone to have 360 waves. We saw a problem - wavers in SA were paying too much for imported, overpriced and often fake products. Our mission is to make elite wave culture accessible, affordable and authentic. See what we stock on the <a href="products.html">products page</a>.</p>
 
-  <!-- Mission Section -->
-  <h3>Our Mission</h3>
-  <p>To empower every waver with premium, authentic products, education, and community to achieve their best waves - from first ripple to 720.</p>
+  <!-- Tabs: Mission / Vision / Values / Audience (js/ui.js) -->
+  <section class="tabs" data-tabs aria-labelledby="tabs-heading">
+    <h2 id="tabs-heading">What drives us</h2>
+    <div role="tablist" aria-label="About 360WAVING">
+      <button role="tab" id="tab-mission" aria-controls="panel-mission" aria-selected="true" type="button">Our Mission</button>
+      <button role="tab" id="tab-vision" aria-controls="panel-vision" aria-selected="false" type="button" tabindex="-1">Our Vision</button>
+      <button role="tab" id="tab-values" aria-controls="panel-values" aria-selected="false" type="button" tabindex="-1">Our Values</button>
+      <button role="tab" id="tab-audience" aria-controls="panel-audience" aria-selected="false" type="button" tabindex="-1">Target Audience</button>
+    </div>
+    <div role="tabpanel" id="panel-mission" aria-labelledby="tab-mission" tabindex="0">
+      <h3>Our Mission</h3>
+      <p>To empower every waver with premium, authentic products, education, and community to achieve their best waves - from first ripple to 720.</p>
+    </div>
+    <div role="tabpanel" id="panel-vision" aria-labelledby="tab-vision" tabindex="0" hidden>
+      <h3>Our Vision</h3>
+      <p>To be South Africa's most trusted and celebrated wave culture destination - the home of waves, drip, and discipline.</p>
+    </div>
+    <div role="tabpanel" id="panel-values" aria-labelledby="tab-values" tabindex="0" hidden>
+      <h3>Our Values</h3>
+      <ul class="plain-list">
+        <li>Authentic - No fake products</li>
+        <li>Premium - Only best quality</li>
+        <li>Community - Education and tutorials</li>
+        <li>Discipline - Waves = dedication</li>
+      </ul>
+    </div>
+    <div role="tabpanel" id="panel-audience" aria-labelledby="tab-audience" tabindex="0" hidden>
+      <h3>Target Audience</h3>
+      <ul class="plain-list">
+        <li>Beginners 15-30 starting their wave journey</li>
+        <li>Dedicated wavers - 360, 540, 720 patterns</li>
+        <li>Barbers and salons - ask about <a href="enquiry.html">bulk orders</a></li>
+        <li>Streetwear enthusiasts - drip culture</li>
+      </ul>
+    </div>
+  </section>
 
-  <!-- Vision Section -->
-  <h3>Our Vision</h3>
-  <p>To be South Africa's most trusted and celebrated wave culture destination - the home of waves, drip, and discipline.</p>
+  <!-- Interactive map (Leaflet + OpenStreetMap) - js/map.js -->
+  <section aria-labelledby="map-heading">
+    <h2 id="map-heading">Find us in Durban</h2>
+    <p>We are based in Durban, KwaZulu-Natal and deliver nationwide. The gold circle shows our same-day delivery area. Click the map to zoom with your mouse wheel.</p>
+    <div id="map" class="map" role="region" aria-label="Map showing the 360WAVING base in Durban, KwaZulu-Natal"></div>
+    <p class="cart-note"><a href="https://www.openstreetmap.org/?mlat=-29.8587&amp;mlon=31.0218#map=11/-29.8587/31.0218" target="_blank" rel="noopener noreferrer">Open Durban in OpenStreetMap</a> · Need directions or a delivery quote? <a href="contact.html">Contact us</a>.</p>
+  </section>
 
-  <!-- Target Audience - Unordered list with border-left styling -->
-  <h3>Target Audience</h3>
-  <ul>
-    <li>Beginners 15-30 starting their wave journey</li>
-    <li>Dedicated wavers - 360, 540, 720 patterns</li>
-    <li>Barbers and salons</li>
-    <li>Streetwear enthusiasts - drip culture</li>
-  </ul>
-
-  <!-- Values Section -->
-  <h3>Our Values</h3>
-  <ul>
-    <li>Authentic - No fake products</li>
-    <li>Premium - Only best quality</li>
-    <li>Community - Education and tutorials</li>
-    <li>Discipline - Waves = dedication</li>
-  </ul>
-
-  <!-- Brand Identity - Logo mark with flex -->
-  <h3>Brand Identity</h3>
-  <p>Colors: Wave Black and Silk Gold- representing luxury waves.</p>
-
+  <h2>Brand Identity</h2>
+  <p>Colors: Wave Black and Silk Gold - representing luxury waves.</p>
   <div class="brand-mark">
-    <img src="IMG/360wavinglogo.jpg" alt="Brand Mark" width="40" height="40">
+    <img src="IMG/360waving-logo.webp" alt="360WAVING logo mark" width="40" height="40" loading="lazy">
     <span>360WAVING</span>
   </div>
 
+  <!-- Developer callout -->
+  <div class="dev-callout" data-reveal>
+    <h2>👨‍💻 The Developer Behind 360WAVING</h2>
+    <p>Built in Durban, KZN • Web Development ST10515337 • HTML | CSS | JavaScript | E-commerce</p>
+    <a href="https://github.com/Cebo1717/ST105153378_WEB-D-PART-2" target="_blank" rel="noopener noreferrer" class="dev-btn">🐙 View My GitHub - Web Dev Projects</a>
+  </div>
 </main>
 
-<!-- Developer Callout Section: GitHub link - Visual styling with border and shadow -->
-<div class="dev-callout">
-  <h3>👨‍💻 The Developer Behind 360WAVING</h3>
-  <p>Built in Durban, KZN • Web Development ST10515337 • HTML | CSS | JS | E-commerce</p>
-
-  <a href="https://github.com/Cebo1717/ST105153378_WEB-D-PART-2" target="_blank" class="dev-btn">
-     🐙 View My GitHub - Web Dev Projects
-  </a>
-</div>
 <hr>
 
-<!-- Footer Section: Copyright - Flexbox centered -->
+<!-- Footer: internal links, social media (off-page SEO) and copyright -->
 <footer>
-  <p>&copy; 2026 360WAVING - Durban, KZN</p>
+  <div class="footer-grid">
+    <div>
+      <h2 class="footer-title">360WAVING</h2>
+      <p>Durban, KwaZulu-Natal · Nationwide delivery<br>Mon-Sat 9AM-6PM</p>
+    </div>
+    <div>
+      <h2 class="footer-title">Explore</h2>
+      <ul class="footer-links">
+        <li><a href="products.html">Shop products</a></li>
+        <li><a href="products.html?category=kits">Wave kits</a></li>
+        <li><a href="how-to-get-waves.html">How to get waves</a></li>
+        <li><a href="enquiry.html">Make an enquiry</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Follow us</h2>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/360waving/" target="_blank" rel="noopener noreferrer me">Instagram @360WAVING</a></li>
+        <li><a href="https://www.tiktok.com/@360waving" target="_blank" rel="noopener noreferrer me">TikTok @360WAVING</a></li>
+        <li><a href="https://www.facebook.com/360waving" target="_blank" rel="noopener noreferrer me">Facebook 360WAVING</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; <span data-year>2026</span> 360WAVING - All Rights Reserved | Durban, KZN | Website by Z Tembe (ST10515337)</p>
 </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" defer></script>
+  <script src="js/data-fallback.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/map.js" defer></script>
 </body>
 </html>

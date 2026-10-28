@@ -1,68 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - 360WAVING</title>
+  <title>Contact 360WAVING | Durban Wave Products, WhatsApp & Email</title>
+  <!-- SEO: unique title, description and keywords for this page -->
+  <meta name="description" content="Contact 360WAVING in Durban: WhatsApp +27 76 248 1717, e-mail, business hours, map and a message form for orders, delivery tracking and bulk orders.">
+  <meta name="keywords" content="contact 360WAVING, Durban wave products, WhatsApp order, bulk order barbershop, delivery tracking">
+  <meta name="author" content="Z Tembe - ST10515337">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://360waving.netlify.app/contact.html">
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="360WAVING">
+  <meta property="og:title" content="Contact 360WAVING | Durban Wave Products, WhatsApp & Email">
+  <meta property="og:description" content="Contact 360WAVING in Durban: WhatsApp +27 76 248 1717, e-mail, business hours, map and a message form for orders, delivery tracking and bulk orders.">
+  <meta property="og:url" content="https://360waving.netlify.app/contact.html">
+  <meta property="og:image" content="https://360waving.netlify.app/IMG/og-360waving.jpg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Security: Content Security Policy + referrer policy (only trusted sources may load) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://cdnjs.cloudflare.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="IMG/favicon.png">
+  <link rel="apple-touch-icon" href="IMG/apple-touch-icon.png">
+  <!-- Fonts + stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <!-- Structured data (JSON-LD): helps Google show the business and its local details -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "360WAVING",
+    "description": "Durban-based beauty, grooming and streetwear brand selling authentic wave brushes, durags, wave caps, pomades, oils, shampoos and wave kits with nationwide delivery in South Africa.",
+    "url": "https://360waving.netlify.app/",
+    "logo": "https://360waving.netlify.app/IMG/360waving-logo-512.jpg",
+    "image": "https://360waving.netlify.app/IMG/og-360waving.jpg",
+    "telephone": "+27762481717",
+    "email": "info@360waving.co.za",
+    "areaServed": "South Africa",
+    "address": { "@type": "PostalAddress", "addressLocality": "Durban", "addressRegion": "KwaZulu-Natal", "addressCountry": "ZA" },
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.8587, "longitude": 31.0218 },
+    "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "18:00" }],
+    "priceRange": "R20 - R250"
+  }
+  </script>
 </head>
 <body>
 
-<!-- Header Section: Logo + Brand - Flexbox column -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Header: logo + brand (flexbox column) -->
 <header>
- <h1>
-  <img src="IMG/360wavinglogo.jpg" alt="360WAVING Logo">
-  <span>360WAVING</span>
-  </h1>
+  <a class="brand" href="index.html" aria-label="360WAVING - go to the home page">
+    <img src="IMG/360waving-logo.webp" alt="360WAVING round black and gold logo" width="80" height="80">
+    <span>360WAVING</span>
+  </a>
   <p>360 Waves All Day - GET YOUR WAVES RIGHT</p>
 </header>
 
-<!-- Nav Section: Consistent navigation  -->
-<nav>
+<!-- Navigation: same order on all 8 pages, current page highlighted. Menu button shows on mobile. -->
+<nav aria-label="Main navigation">
+  <button type="button" class="nav-toggle" aria-expanded="false">☰ Menu</button>
   <a href="index.html">Home</a>
-  <a href="PRODUCT.html">Products</a>
-  <a href="About.html">About</a>
-  <a href="Contact.html" class="active">Contact</a>
-  <a href="FAQ.html">FAQ</a>
-  <a href="PROCESS.html">How To Get Waves</a>
+  <a href="products.html">Products</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="contact.html" class="active" aria-current="page">Contact</a>
+  <a href="enquiry.html">Enquiry</a>
+  <a href="faq.html">FAQ</a>
+  <a href="how-to-get-waves.html">How To Get Waves</a>
+  <button type="button" class="cart-btn" aria-label="Open shopping cart">🛒 Cart <span class="cart-count" aria-hidden="true">0</span></button>
 </nav>
 
 <hr>
 
-<!-- Main Content: Contact Information - Addresses Sufficient Content -->
-<main>
-  <h2>Contact Us</h2>
-  <!-- Contact Details -->
-  <p><strong>Headquarters:</strong> Durban, KwaZulu-Natal, South Africa - Nationwide Delivery</p>
-  <p><strong>Email:</strong> info@360waving.com / info@360waving.co.za / hello@360waving.co.za</p>
-  <p><strong>Phone / WhatsApp:</strong> +27762481717</p>
-  <p>Follow us for wave tips, tutorials and drops.</p>
+<main id="main">
+  <h1>Contact Us</h1>
 
-  <!-- Social Media Links - Unordered list -->
-  <h3>Follow Our Wave Community</h3>
-  <ul>
-    <li>Instagram: @360WAVING - Daily wave tips</li>
-    <li>TikTok: @360WAVING - 360 tutorials</li>
-    <li>Facebook: 360WAVING</li>
-  </ul>
+  <div class="two-col">
+    <section aria-labelledby="details-heading" data-reveal>
+      <h2 id="details-heading">Our details</h2>
+      <p><strong>Headquarters:</strong> Durban, KwaZulu-Natal, South Africa - Nationwide Delivery</p>
+      <p><strong>E-mail:</strong> <a href="mailto:info@360waving.co.za">info@360waving.co.za</a> / <a href="mailto:info@360waving.com">info@360waving.com</a> / <a href="mailto:hello@360waving.co.za">hello@360waving.co.za</a></p>
+      <p><strong>Phone / WhatsApp:</strong> <a href="tel:+27762481717">+27 76 248 1717</a></p>
+      <h3>Business Hours</h3>
+      <p>Monday - Saturday: 9AM - 6PM</p>
+      <p>Sunday: Closed - Durag on, waves spinning</p>
+      <h3>Follow Our Wave Community</h3>
+      <ul class="plain-list">
+        <li>Instagram: @360WAVING - Daily wave tips</li>
+        <li>TikTok: @360WAVING - 360 tutorials</li>
+        <li>Facebook: 360WAVING</li>
+      </ul>
+      <h3>Why Contact Us?</h3>
+      <p>For bulk orders for barbershops, wave kit advice for beginners 15-30, or tracking your nationwide delivery. Want prices or to sponsor/volunteer? Use our <a href="enquiry.html">enquiry form</a>.</p>
+    </section>
 
-  <!-- Business Hours -->
-  <h3>Business Hours</h3>
-  <p>Monday - Saturday: 9AM - 6PM</p>
-  <p>Sunday: Closed - Durag on, waves spinning</p>
+    <!-- Contact form: general message. Validated with JS, sent by AJAX and compiled into an e-mail (js/forms.js) -->
+    <section aria-labelledby="form-heading" data-reveal>
+      <h2 id="form-heading">Send us a message</h2>
+      <form id="contact-form" class="form" method="post" action="https://formsubmit.co/info@360waving.co.za" autocomplete="on">
+        <p class="form-summary" role="alert" hidden></p>
 
-  <h3>Why Contact Us?</h3>
-  <p>For bulk orders for barbershops, wave kit advice for beginners 15-30, or tracking your nationwide delivery.</p>
+        <div class="field">
+          <label for="c-name">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="c-name" name="name" data-label="Full name" required minlength="2" maxlength="60" autocomplete="name" aria-describedby="c-name-err">
+          <span class="field-error" id="c-name-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="c-email">E-mail address <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="c-email" name="email" data-label="E-mail address" required maxlength="100" autocomplete="email" aria-describedby="c-email-err">
+          <span class="field-error" id="c-email-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="c-phone">Phone / WhatsApp <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="c-phone" name="phone" data-label="Phone number" required inputmode="tel" placeholder="076 248 1717" maxlength="20" autocomplete="tel" aria-describedby="c-phone-err">
+          <span class="field-error" id="c-phone-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="c-type">Type of message <span class="req" aria-hidden="true">*</span></label>
+          <select id="c-type" name="type" required aria-describedby="c-type-err">
+            <option value="">Choose...</option>
+            <option value="general">General message</option>
+            <option value="order">Order or delivery tracking</option>
+            <option value="bulk">Bulk order</option>
+            <option value="feedback">Feedback</option>
+            <option value="media">Media / collaboration</option>
+          </select>
+          <span class="field-error" id="c-type-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="c-subject">Subject <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="c-subject" name="subject" data-label="Subject" required minlength="3" maxlength="80" aria-describedby="c-subject-err">
+          <span class="field-error" id="c-subject-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="c-message">Message <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="c-message" name="message" data-label="Message" rows="6" required minlength="10" maxlength="1000" aria-describedby="c-message-err c-message-count"></textarea>
+          <span class="field-error" id="c-message-err"></span>
+          <span class="counter" id="c-message-count" data-counter-for="c-message"></span>
+        </div>
+
+        <fieldset class="field radio-group">
+          <legend>Preferred way to reply <span class="req" aria-hidden="true">*</span></legend>
+          <label><input type="radio" name="reply" value="email" required> E-mail</label>
+          <label><input type="radio" name="reply" value="phone"> Phone / WhatsApp</label>
+          <span class="field-error" id="c-reply-err"></span>
+        </fieldset>
+
+        <!-- Spam trap: hidden from people, bots fill it in -->
+        <div class="hp" aria-hidden="true"><label>Leave empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="field">
+          <label class="check"><input type="checkbox" id="c-consent" name="consent" value="yes" required data-error="Please agree so we can reply to you."> I agree that 360WAVING may use these details to reply to my message. <span class="req" aria-hidden="true">*</span></label>
+          <span class="field-error" id="c-consent-err"></span>
+        </div>
+
+        <button type="submit" class="btn">Send message</button>
+      </form>
+
+      <!-- Compiled e-mail appears here after the form is validated -->
+      <div id="email-output" aria-live="polite" hidden></div>
+    </section>
+  </div>
+
+  <section aria-labelledby="map-heading">
+    <h2 id="map-heading">Where we are</h2>
+    <div id="map" class="map" role="region" aria-label="Map showing the 360WAVING base in Durban, KwaZulu-Natal"></div>
+    <div class="map-tools">
+      <button type="button" id="locate-btn" class="btn btn-outline">📍 How far am I from you?</button>
+      <p id="distance-result" class="cart-note" role="status" aria-live="polite"></p>
+    </div>
+    <p class="cart-note"><a href="https://www.openstreetmap.org/?mlat=-29.8587&amp;mlon=31.0218#map=11/-29.8587/31.0218" target="_blank" rel="noopener noreferrer">Open Durban in OpenStreetMap</a></p>
+  </section>
 </main>
 
 <hr>
 
-<!-- Footer Section -->
+<!-- Footer: internal links, social media (off-page SEO) and copyright -->
 <footer>
-  <p>&copy; 2026 360WAVING - Durban, KZN</p>
+  <div class="footer-grid">
+    <div>
+      <h2 class="footer-title">360WAVING</h2>
+      <p>Durban, KwaZulu-Natal · Nationwide delivery<br>Mon-Sat 9AM-6PM</p>
+    </div>
+    <div>
+      <h2 class="footer-title">Explore</h2>
+      <ul class="footer-links">
+        <li><a href="products.html">Shop products</a></li>
+        <li><a href="products.html?category=kits">Wave kits</a></li>
+        <li><a href="how-to-get-waves.html">How to get waves</a></li>
+        <li><a href="enquiry.html">Make an enquiry</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Follow us</h2>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/360waving/" target="_blank" rel="noopener noreferrer me">Instagram @360WAVING</a></li>
+        <li><a href="https://www.tiktok.com/@360waving" target="_blank" rel="noopener noreferrer me">TikTok @360WAVING</a></li>
+        <li><a href="https://www.facebook.com/360waving" target="_blank" rel="noopener noreferrer me">Facebook 360WAVING</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; <span data-year>2026</span> 360WAVING - All Rights Reserved | Durban, KZN | Website by Z Tembe (ST10515337)</p>
 </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" defer></script>
+  <script src="js/data-fallback.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/map.js" defer></script>
+  <script src="js/forms.js" defer></script>
 </body>
 </html>

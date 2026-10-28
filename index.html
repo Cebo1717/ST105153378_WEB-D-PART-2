@@ -1,66 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>360WAVING - 360 Waves All Day</title>
+  <title>360WAVING | Wave Brushes, Durags & Pomade in Durban, SA</title>
+  <!-- SEO: unique title, description and keywords for this page -->
+  <meta name="description" content="Durban's home of 360 waves. Shop authentic wave brushes, durags, wave caps, pomades, oils and wave kits with nationwide delivery across South Africa.">
+  <meta name="keywords" content="360 waves, wave brush, durag, wave cap, pomade, wave kit, Durban, South Africa, wave products, 360WAVING">
+  <meta name="author" content="Z Tembe - ST10515337">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://360waving.netlify.app/">
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="360WAVING">
+  <meta property="og:title" content="360WAVING | Wave Brushes, Durags & Pomade in Durban, SA">
+  <meta property="og:description" content="Durban's home of 360 waves. Shop authentic wave brushes, durags, wave caps, pomades, oils and wave kits with nationwide delivery across South Africa.">
+  <meta property="og:url" content="https://360waving.netlify.app/">
+  <meta property="og:image" content="https://360waving.netlify.app/IMG/og-360waving.jpg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Security: Content Security Policy + referrer policy (only trusted sources may load) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://cdnjs.cloudflare.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="IMG/favicon.png">
+  <link rel="apple-touch-icon" href="IMG/apple-touch-icon.png">
+  <!-- Fonts + stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Structured data (JSON-LD): helps Google show the business and its local details -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "360WAVING",
+    "description": "Durban-based beauty, grooming and streetwear brand selling authentic wave brushes, durags, wave caps, pomades, oils, shampoos and wave kits with nationwide delivery in South Africa.",
+    "url": "https://360waving.netlify.app/",
+    "logo": "https://360waving.netlify.app/IMG/360waving-logo-512.jpg",
+    "image": "https://360waving.netlify.app/IMG/og-360waving.jpg",
+    "telephone": "+27762481717",
+    "email": "info@360waving.co.za",
+    "areaServed": "South Africa",
+    "address": { "@type": "PostalAddress", "addressLocality": "Durban", "addressRegion": "KwaZulu-Natal", "addressCountry": "ZA" },
+    "geo": { "@type": "GeoCoordinates", "latitude": -29.8587, "longitude": 31.0218 },
+    "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "18:00" }],
+    "priceRange": "R20 - R250"
+  }
+  </script>
 </head>
 <body>
 
-<!-- Header: Logo + Brand - Flexbox column centered -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Header: logo + brand (flexbox column) -->
 <header>
-   <h1>
-  <img src="IMG/360wavinglogo.jpg" alt="360WAVING Logo">
-  <span>360WAVING</span>
-  </h1>
+  <a class="brand" href="index.html" aria-label="360WAVING - go to the home page">
+    <img src="IMG/360waving-logo.webp" alt="360WAVING round black and gold logo" width="80" height="80">
+    <span>360WAVING</span>
+  </a>
   <p>360 Waves All Day - GET YOUR WAVES RIGHT</p>
 </header>
 
-<!-- Nav: Standardised across all 6 pages - nav inconsistent casing -->
-<nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="PRODUCT.html">Products</a>
-  <a href="About.html">About</a>
-  <a href="Contact.html">Contact</a>
-  <a href="FAQ.html">FAQ</a>
-  <a href="PROCESS.html">How To Get Waves</a>
+<!-- Navigation: same order on all 8 pages, current page highlighted. Menu button shows on mobile. -->
+<nav aria-label="Main navigation">
+  <button type="button" class="nav-toggle" aria-expanded="false">☰ Menu</button>
+  <a href="index.html" class="active" aria-current="page">Home</a>
+  <a href="products.html">Products</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="enquiry.html">Enquiry</a>
+  <a href="faq.html">FAQ</a>
+  <a href="how-to-get-waves.html">How To Get Waves</a>
+  <button type="button" class="cart-btn" aria-label="Open shopping cart">🛒 Cart <span class="cart-count" aria-hidden="true">0</span></button>
 </nav>
 
 <hr>
 
-<!-- Main: Welcome content + feature grid - Uses CSS Grid for layout -->
-<main>
-  <h2>🙂Welcome to 360WAVING🌊</h2>
-  <p>Welcome to 360WAVING. We help you get 360 waves all day. We sell durags, wave brushes and pomades.</p>
-  <p>Founded in 2024 in Durban, KwaZulu-Natal. We started as an Instagram page selling durags and brushes because wave products in SA were imported, overpriced and often fake. Our goal is to make elite wave culture accessible to everyone - from first ripple to 720 waves.</p>
-  
-  <img src="IMG/wavings.jpg" alt="Wave Culture" width="250" height="230" class="result-img">
-  
-  <h3>What we sell📦</h3>
-  <!-- Feature Grid: CSS Grid 2 cols desktop → 1 col mobile -->
+<!-- Main: welcome content + feature grid (CSS Grid) -->
+<main id="main">
+  <h1>Welcome to 360WAVING 🌊 - 360 Waves All Day</h1>
+  <p data-reveal>We help you get 360 waves all day. We sell <a href="products.html?category=durags">durags</a>, <a href="products.html?category=brushes">wave brushes</a> and <a href="products.html?category=pomades">pomades</a> - authentic wave-care products with nationwide delivery in South Africa.</p>
+  <p data-reveal>Founded in 2024 in Durban, KwaZulu-Natal. We started as an Instagram page selling durags and brushes because wave products in SA were imported, overpriced and often fake. Our goal is to make elite wave culture accessible to everyone - from first ripple to 720 waves. <a href="about.html">Read our full story</a>.</p>
+
+  <div class="hero-actions" data-reveal>
+    <a class="btn" href="products.html">Shop products</a>
+    <a class="btn btn-outline" href="how-to-get-waves.html">Learn how to get waves</a>
+  </div>
+
+  <figure class="hero-figure" data-reveal data-gallery>
+    <a href="IMG/brushing-360-waves-durban.webp" data-lightbox data-caption="Brushing 360 waves with a 360WAVING brush - click for a larger view">
+      <img src="IMG/brushing-360-waves-durban.webp" alt="Close-up of a man brushing his 360 waves with a 360WAVING wave brush" width="250" height="331" class="result-img">
+    </a>
+    <figcaption>Brush your 360 waves from the crown outward (tap the photo to enlarge).</figcaption>
+  </figure>
+
+  <h2>What we sell 📦</h2>
+  <!-- Feature Grid: CSS Grid 2 cols desktop -> 1 col mobile -->
   <ul class="feature-grid">
-    <li>Durags - Silky and Velvet for compression</li>
-    <li>Wave Caps - Double-layer stocking caps</li>
-    <li>Wave Brushes - Hard for wolfing, Medium for training, Soft for finishing</li>
-    <li>Pomades and Butters - For hold and shine</li>
-    <li>Oils and Moisturizers - To keep hair hydrated</li>
-    <li>Shampoos and Conditioners - Wave-friendly wash</li>
-    <li>Complete Wave Kits - Beginner to Elite (Durag + Cap + Brushes + Pomade + Oil)</li>
+    <li data-reveal>Durags - Silky and Velvet for compression</li>
+    <li data-reveal>Wave Caps - Double-layer stocking caps</li>
+    <li data-reveal>Wave Brushes - Hard for wolfing, Medium for training, Soft for finishing</li>
+    <li data-reveal>Pomades and Butters - For hold and shine</li>
+    <li data-reveal>Oils and Moisturizers - To keep hair hydrated</li>
+    <li data-reveal>Shampoos and Conditioners - Wave-friendly wash</li>
+    <li data-reveal>Complete Wave Kits - Beginner to Elite (Durag + Cap + Brushes + Pomade + Oil)</li>
   </ul>
 
-  <h3>Why Choose 360WAVING?</h3>
-  <p>We are Durban's home of wave culture. We sell only authentic, premium products. We provide education and community, not just products. Nationwide delivery across South Africa.</p>
+  <h2>Why choose 360WAVING?</h2>
+  <p>We are Durban's home of wave culture. We sell only authentic, premium products. We provide education and community, not just products. Nationwide delivery across South Africa. Questions? Visit our <a href="faq.html">FAQ</a>, <a href="enquiry.html">send an enquiry</a> or <a href="contact.html">contact us</a>.</p>
+
+  <!-- Wave tips: posts loaded dynamically from data/tips.json by js/ui.js, "Load more" reveals the next ones -->
+  <section aria-labelledby="tips-heading" class="tips">
+    <h2 id="tips-heading">Latest wave tips</h2>
+    <div id="tips-list" class="tips-list" aria-live="polite">
+      <p>Loading wave tips...</p>
+    </div>
+    <p id="tips-status" class="cart-note" role="status"></p>
+    <button type="button" id="tips-more" class="btn btn-outline">Load more tips</button>
+    <noscript><p>Turn on JavaScript to read our latest wave tips, or see the full <a href="how-to-get-waves.html">step-by-step guide</a>.</p></noscript>
+  </section>
 </main>
 
 <hr>
 
-<!-- Footer: Simple centered copyright -->
+<!-- Footer: internal links, social media (off-page SEO) and copyright -->
 <footer>
-  <p>&copy; 2026 360WAVING - All Rights Reserved | Durban, KZN</p>
+  <div class="footer-grid">
+    <div>
+      <h2 class="footer-title">360WAVING</h2>
+      <p>Durban, KwaZulu-Natal · Nationwide delivery<br>Mon-Sat 9AM-6PM</p>
+    </div>
+    <div>
+      <h2 class="footer-title">Explore</h2>
+      <ul class="footer-links">
+        <li><a href="products.html">Shop products</a></li>
+        <li><a href="products.html?category=kits">Wave kits</a></li>
+        <li><a href="how-to-get-waves.html">How to get waves</a></li>
+        <li><a href="enquiry.html">Make an enquiry</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Follow us</h2>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/360waving/" target="_blank" rel="noopener noreferrer me">Instagram @360WAVING</a></li>
+        <li><a href="https://www.tiktok.com/@360waving" target="_blank" rel="noopener noreferrer me">TikTok @360WAVING</a></li>
+        <li><a href="https://www.facebook.com/360waving" target="_blank" rel="noopener noreferrer me">Facebook 360WAVING</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; <span data-year>2026</span> 360WAVING - All Rights Reserved | Durban, KZN | Website by Z Tembe (ST10515337)</p>
 </footer>
 
+  <script src="js/data-fallback.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/ui.js" defer></script>
 </body>
 </html>
