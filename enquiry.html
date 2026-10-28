@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquiry | Prices, Bulk Orders, Sponsorship - 360WAVING</title>
+  <!-- SEO: unique title, description and keywords for this page -->
+  <meta name="description" content="Ask 360WAVING about product prices and availability, bulk orders for barbershops, sponsorship or volunteering. Get an instant cost estimate and delivery info.">
+  <meta name="keywords" content="wave product enquiry, bulk order barbershop, sponsor 360WAVING, volunteer wave community, price quote Durban">
+  <meta name="author" content="Z Tembe - ST10515337">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://360waving.netlify.app/enquiry.html">
+  <!-- Social sharing (Open Graph / Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="360WAVING">
+  <meta property="og:title" content="Enquiry | Prices, Bulk Orders, Sponsorship - 360WAVING">
+  <meta property="og:description" content="Ask 360WAVING about product prices and availability, bulk orders for barbershops, sponsorship or volunteering. Get an instant cost estimate and delivery info.">
+  <meta property="og:url" content="https://360waving.netlify.app/enquiry.html">
+  <meta property="og:image" content="https://360waving.netlify.app/IMG/og-360waving.jpg">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Security: Content Security Policy + referrer policy (only trusted sources may load) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://cdnjs.cloudflare.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="IMG/favicon.png">
+  <link rel="apple-touch-icon" href="IMG/apple-touch-icon.png">
+  <!-- Fonts + stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Header: logo + brand (flexbox column) -->
+<header>
+  <a class="brand" href="index.html" aria-label="360WAVING - go to the home page">
+    <img src="IMG/360waving-logo.webp" alt="360WAVING round black and gold logo" width="80" height="80">
+    <span>360WAVING</span>
+  </a>
+  <p>360 Waves All Day - GET YOUR WAVES RIGHT</p>
+</header>
+
+<!-- Navigation: same order on all 8 pages, current page highlighted. Menu button shows on mobile. -->
+<nav aria-label="Main navigation">
+  <button type="button" class="nav-toggle" aria-expanded="false">☰ Menu</button>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="enquiry.html" class="active" aria-current="page">Enquiry</a>
+  <a href="faq.html">FAQ</a>
+  <a href="how-to-get-waves.html">How To Get Waves</a>
+  <button type="button" class="cart-btn" aria-label="Open shopping cart">🛒 Cart <span class="cart-count" aria-hidden="true">0</span></button>
+</nav>
+
+<hr>
+
+<main id="main">
+  <h1>Make an Enquiry</h1>
+  <p>Want prices, stock and delivery info, a <strong>bulk order</strong> for your barbershop or salon, or to <strong>sponsor</strong> or <strong>volunteer</strong> with 360WAVING? Fill in the form and you get an instant response on this page - and our team receives your enquiry too. For a general message use the <a href="contact.html">contact page</a>.</p>
+
+  <div class="two-col">
+    <section aria-labelledby="enq-heading">
+      <h2 id="enq-heading">Enquiry form</h2>
+      <form id="enquiry-form" class="form" method="post" action="https://formsubmit.co/info@360waving.co.za">
+        <p class="form-summary" role="alert" hidden></p>
+
+        <div class="field">
+          <label for="e-name">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="e-name" name="name" data-label="Full name" required minlength="2" maxlength="60" autocomplete="name" aria-describedby="e-name-err">
+          <span class="field-error" id="e-name-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="e-email">E-mail address <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="e-email" name="email" data-label="E-mail address" required maxlength="100" autocomplete="email" aria-describedby="e-email-err">
+          <span class="field-error" id="e-email-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="e-phone">Phone / WhatsApp <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="e-phone" name="phone" data-label="Phone number" required inputmode="tel" placeholder="076 248 1717" maxlength="20" autocomplete="tel" aria-describedby="e-phone-err">
+          <span class="field-error" id="e-phone-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="enquiry-type">What is your enquiry about? <span class="req" aria-hidden="true">*</span></label>
+          <select id="enquiry-type" name="type" required aria-describedby="e-type-err">
+            <option value="">Choose...</option>
+            <option value="product">Product prices and availability</option>
+            <option value="bulk">Bulk order (barbershop / salon)</option>
+            <option value="sponsor">Sponsoring 360WAVING</option>
+            <option value="volunteer">Volunteering with the community</option>
+          </select>
+          <span class="field-error" id="e-type-err"></span>
+        </div>
+
+        <!-- Only shown for product / bulk enquiries -->
+        <div class="field" data-for="product" hidden>
+          <label for="enquiry-product">Product <span class="req" aria-hidden="true">*</span></label>
+          <select id="enquiry-product" name="product" aria-describedby="e-product-err">
+            <option value="">Choose a product...</option>
+          </select>
+          <span class="field-error" id="e-product-err"></span>
+        </div>
+
+        <div class="field" data-for="product" hidden>
+          <label for="enquiry-qty">Quantity <span class="req" aria-hidden="true">*</span></label>
+          <input type="number" id="enquiry-qty" name="quantity" data-label="Quantity" min="1" max="500" step="1" inputmode="numeric" placeholder="1" aria-describedby="e-qty-err">
+          <span class="field-error" id="e-qty-err"></span>
+        </div>
+
+        <div class="field" data-for="product" hidden>
+          <label for="enquiry-area">Delivery area <span class="req" aria-hidden="true">*</span></label>
+          <select id="enquiry-area" name="area" aria-describedby="e-area-err">
+            <option value="">Choose...</option>
+            <option value="durban">Durban</option>
+            <option value="kzn">Rest of KwaZulu-Natal</option>
+            <option value="sa">Rest of South Africa</option>
+          </select>
+          <span class="field-error" id="e-area-err"></span>
+        </div>
+
+        <div class="field" data-for="product" hidden>
+          <label for="enquiry-date">Date you need it by (optional)</label>
+          <input type="date" id="enquiry-date" name="needed_by" data-label="Date" aria-describedby="e-date-err">
+          <span class="field-error" id="e-date-err"></span>
+        </div>
+
+        <div class="field">
+          <label for="e-message">Tell us more <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="e-message" name="message" data-label="Your message" rows="5" required minlength="10" maxlength="500" aria-describedby="e-message-err e-message-count"></textarea>
+          <span class="field-error" id="e-message-err"></span>
+          <span class="counter" id="e-message-count" data-counter-for="e-message"></span>
+        </div>
+
+        <fieldset class="field radio-group">
+          <legend>How should we reply? <span class="req" aria-hidden="true">*</span></legend>
+          <label><input type="radio" name="contact" value="email" required> E-mail</label>
+          <label><input type="radio" name="contact" value="whatsapp"> WhatsApp</label>
+          <span class="field-error" id="e-contact-err"></span>
+        </fieldset>
+
+        <div class="hp" aria-hidden="true"><label>Leave empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="field">
+          <label class="check"><input type="checkbox" id="e-consent" name="consent" value="yes" required data-error="Please agree so we can reply to you."> I agree that 360WAVING may contact me about this enquiry. <span class="req" aria-hidden="true">*</span></label>
+          <span class="field-error" id="e-consent-err"></span>
+        </div>
+
+        <button type="submit" class="btn">Get my response</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="resp-heading" aria-live="polite">
+      <h2 id="resp-heading">Your response</h2>
+      <p class="cart-note">Your quote or answer appears here once the form is valid.</p>
+      <div id="enquiry-response" hidden></div>
+    </section>
+  </div>
+</main>
+
+<hr>
+
+<!-- Footer: internal links, social media (off-page SEO) and copyright -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h2 class="footer-title">360WAVING</h2>
+      <p>Durban, KwaZulu-Natal · Nationwide delivery<br>Mon-Sat 9AM-6PM</p>
+    </div>
+    <div>
+      <h2 class="footer-title">Explore</h2>
+      <ul class="footer-links">
+        <li><a href="products.html">Shop products</a></li>
+        <li><a href="products.html?category=kits">Wave kits</a></li>
+        <li><a href="how-to-get-waves.html">How to get waves</a></li>
+        <li><a href="enquiry.html">Make an enquiry</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Follow us</h2>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/360waving/" target="_blank" rel="noopener noreferrer me">Instagram @360WAVING</a></li>
+        <li><a href="https://www.tiktok.com/@360waving" target="_blank" rel="noopener noreferrer me">TikTok @360WAVING</a></li>
+        <li><a href="https://www.facebook.com/360waving" target="_blank" rel="noopener noreferrer me">Facebook 360WAVING</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">&copy; <span data-year>2026</span> 360WAVING - All Rights Reserved | Durban, KZN | Website by Z Tembe (ST10515337)</p>
+</footer>
+
+  <script src="js/data-fallback.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>
