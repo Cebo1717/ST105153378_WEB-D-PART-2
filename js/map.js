@@ -12,25 +12,47 @@
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
 
-  // Leaflet failed to load (offline / blocked): the <noscript>-style fallback link stays visible
+  // Leaflet failed to load (CDN blocked / offline): show a plain OpenStreetMap embed of Durban instead
   if (typeof window.L === 'undefined') {
     mapEl.classList.add('map-failed');
-    mapEl.textContent = 'The interactive map could not be loaded. Open Durban on OpenStreetMap using the link below.';
+    const frame = document.createElement('iframe');
+    frame.title = 'Map of Durban, KwaZulu-Natal (OpenStreetMap)';
+    frame.loading = 'lazy';
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.src = 'https://www.openstreetmap.org/export/embed.html?bbox=30.85%2C-29.98%2C31.20%2C-29.74&layer=mapnik&marker=-29.8587%2C31.0218';
+    mapEl.replaceChildren(frame);
     return;
   }
 
   const L = window.L;
   const HQ = [-29.8587, 31.0218]; // Durban, KwaZulu-Natal (approximate base)
 
-  const map = L.map(mapEl, { scrollWheelZoom: false }).setView(HQ, 11);
+  const map = L.map(mapEl, { scrollWheelZoom: false }).setView(HQ, 10);
 
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
+  const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer">CARTO</a>';
+
+  // Primary: CARTO dark tiles (dark map matches the black and gold brand and also loads when the page is opened from a file)
+  const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    subdomains: 'abcd', maxZoom: 19, attribution
   }).addTo(map);
 
+  // Backup: if several tiles fail to load, switch automatically to standard OpenStreetMap tiles
+  let tileErrors = 0;
+  darkTiles.on('tileerror', () => {
+    tileErrors += 1;
+    if (tileErrors === 4) {
+      map.removeLayer(darkTiles);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution }).addTo(map);
+    }
+  });
+
+  // The map must recalculate its size if the layout changes after it was created
+  window.addEventListener('load', () => map.invalidateSize());
+  window.addEventListener('resize', () => map.invalidateSize());
+  setTimeout(() => map.invalidateSize(), 400);
+
   // Custom gold marker (no external marker images needed)
-  const goldIcon = L.divIcon({ className: 'gold-pin', html: '<span>360</span>', iconSize: [44, 44], iconAnchor: [22, 44], popupAnchor: [0, -40] });
+  const goldIcon = L.divIcon({ className: 'gold-pin', html: '<span><b>360</b></span>', iconSize: [44, 44], iconAnchor: [22, 44], popupAnchor: [0, -40] });
 
   L.marker(HQ, { icon: goldIcon, title: '360WAVING - Durban', alt: '360WAVING base in Durban' })
     .addTo(map)
