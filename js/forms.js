@@ -10,10 +10,10 @@
 (function () {
   'use strict';
 
-  const { h, money, loadData } = window.Waving;
+  const { h, money, loadData, DELIVERY_FEE } = window.Waving;
 
   /* The e-mail address that receives messages. Change it here ONCE. */
-  const RECIPIENT_EMAIL = 'info@360waving.co.za';
+  const RECIPIENT_EMAIL = '360waving@gmail.com';
   /* AJAX endpoint (FormSubmit relays the form data to RECIPIENT_EMAIL). */
   const AJAX_ENDPOINT = 'https://formsubmit.co/ajax/' + RECIPIENT_EMAIL;
 
@@ -200,7 +200,8 @@
         // Example bulk tiers for barbershops/salons - edit to match the real price list.
         const discount = v.type === 'bulk' ? (qty >= 25 ? 0.15 : qty >= 10 ? 0.1 : 0) : 0;
         const subtotal = p.price * qty;
-        const total = subtotal * (1 - discount);
+        const goods = subtotal * (1 - discount);
+        const total = goods + DELIVERY_FEE;
 
         box.append(h('table', { class: 'quote' },
           h('tbody', {},
@@ -208,11 +209,12 @@
             h('tr', {}, h('th', { scope: 'row' }, 'Price each'), h('td', {}, money(p.price))),
             h('tr', {}, h('th', { scope: 'row' }, 'Quantity'), h('td', {}, String(qty))),
             discount > 0 ? h('tr', {}, h('th', { scope: 'row' }, 'Bulk discount'), h('td', {}, Math.round(discount * 100) + '% off')) : null,
-            h('tr', { class: 'quote-total' }, h('th', { scope: 'row' }, 'Estimated total'), h('td', {}, money(total) + ' (excl. delivery)')),
+            h('tr', {}, h('th', { scope: 'row' }, 'Delivery (flat fee)'), h('td', {}, money(DELIVERY_FEE))),
+            h('tr', { class: 'quote-total' }, h('th', { scope: 'row' }, 'Estimated total'), h('td', {}, money(total) + ' (incl. delivery)')),
             h('tr', {}, h('th', { scope: 'row' }, 'Availability'), h('td', {}, 'In stock - ships within 1-2 business days'))
           )));
         const area = { durban: 'Durban same-day delivery is available.', kzn: 'Delivery to the rest of KwaZulu-Natal takes about 2-3 business days.', sa: 'Nationwide delivery takes 2-5 business days.' }[v.area] || '';
-        box.append(h('p', {}, area + ' The delivery fee is confirmed when we reply.'));
+        box.append(h('p', {}, area + ' Delivery is a flat R80 per order.'));
         if (v.type === 'bulk' && discount === 0) box.append(h('p', {}, 'Order 10 or more of one product to unlock our barbershop and salon bulk discount.'));
       } else if (v.type === 'sponsor') {
         box.append(h('p', {}, 'We love backing wave culture. We will e-mail you our sponsorship pack (what we offer, audience and next steps) within 2 business days.'));

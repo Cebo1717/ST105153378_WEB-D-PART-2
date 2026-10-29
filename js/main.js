@@ -73,7 +73,8 @@
   }
 
   // Share helpers with the other scripts
-  window.Waving = { h, money, loadData, toast };
+  const DELIVERY_FEE = 80; // flat delivery fee per order (Rand)
+  window.Waving = { h, money, loadData, toast, DELIVERY_FEE };
 
   /* ------------------------------------------------------------------------
      2. MOBILE NAVIGATION
@@ -199,7 +200,7 @@
   /** Builds the WhatsApp order message from the cart */
   function whatsappLink() {
     const lines = cart.map((i) => `• ${i.qty} x ${i.name} (${money(i.price)} each)`);
-    const text = ['Hi 360WAVING, I would like to order:', ...lines, `Total: ${money(cartTotal())}`, 'Please confirm availability and delivery.'].join('\n');
+    const text = ['Hi 360WAVING, I would like to order:', ...lines, `Subtotal: ${money(cartTotal())}`, `Delivery: ${money(DELIVERY_FEE)}`, `Total: ${money(cartTotal() + DELIVERY_FEE)}`, 'Please confirm availability and delivery.'].join('\n');
     return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
   }
 
@@ -237,8 +238,10 @@
 
     body.append(
       list,
-      h('p', { class: 'cart-total' }, 'Total: ', h('strong', {}, money(cartTotal()))),
-      h('p', { class: 'cart-note' }, 'Delivery is confirmed when we reply: Durban same-day, 2-5 business days nationwide.'),
+      h('p', { class: 'cart-sub' }, 'Subtotal: ', money(cartTotal())),
+      h('p', { class: 'cart-sub' }, 'Delivery (flat fee): ', money(DELIVERY_FEE)),
+      h('p', { class: 'cart-total' }, 'Total: ', h('strong', {}, money(cartTotal() + DELIVERY_FEE))),
+      h('p', { class: 'cart-note' }, 'Durban same-day delivery available, 2-5 business days nationwide.'),
       h('div', { class: 'cart-actions' },
         h('a', { class: 'btn', href: whatsappLink(), target: '_blank', rel: 'noopener noreferrer' }, 'Order on WhatsApp'),
         h('a', { class: 'btn btn-outline', href: 'enquiry.html' }, 'Ask a question first'),
