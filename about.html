@@ -20,7 +20,7 @@
   <meta property="og:locale" content="en_ZA">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Security: Content Security Policy + referrer policy (only trusted sources may load) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://*.basemaps.cartocdn.com https://cdnjs.cloudflare.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://*.basemaps.cartocdn.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#0b0b0b">
   <link rel="icon" type="image/png" href="IMG/favicon.png">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="js/vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -156,7 +156,7 @@
   <p class="copyright">&copy; <span data-year>2026</span> 360WAVING - All Rights Reserved | Durban, KZN | Website by Z Tembe (ST10515337)</p>
 </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous" defer></script>
+  <script src="js/vendor/leaflet/leaflet.js" defer></script>
   <script src="js/data-fallback.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/ui.js" defer></script>
