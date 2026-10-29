@@ -42,7 +42,21 @@
 ---
 ## Part 2 Feedback: Corrections Made in Part 3
 
-Every correction below is also recorded, with dates, in the Changelog further down.
+The Part 2 marking rubric returned marks but no written comments, so I treated **every criterion that did not get full marks** as feedback to act on:
+
+| Part 2 criterion | Mark received | What I changed in Part 3 to improve it |
+|------------------|---------------|-----------------------------------------|
+| Feedback for Part 1 / changelog | 7/10 | Wrote a detailed, dated changelog with one row per change, each naming the files affected; documented every Part 2 correction below. |
+| Decoration and colour | 4/5 | Added gradients, glows, branded text selection, themed scrollbar, `caret-color`, `accent-color`, consistent gold/black palette on all new components (CSS section 15). |
+| Pseudo-classes | 8/10 | Added `:focus-visible`, `:focus-within`, `:checked`, `:disabled`, `:target`, `:not()`, `:is()`, `:has()`, `:nth-child()`, `:first-child`, `:last-child`, `:only-child`, `:empty`, `:visited`, `:active`, `::selection`, `::placeholder`, `::marker`, `::first-letter` (CSS section 15). |
+| Media queries / breakpoints | 9/10 | Added breakpoints at 1400, 900, 768, 600 and 480 px plus landscape-phone, `hover: none`, `prefers-reduced-motion`, `prefers-contrast` and print queries; checked for horizontal overflow at 320, 375 and 768 px. |
+| Adjustment - navigation menu | 4/5 | Menu collapses into an animated hamburger button at 768 px and below, with `aria-expanded`, Esc to close, active page highlighted and a cart button. |
+| Adjustment - images | 4/5 | Responsive images with `srcset` and `sizes` (480 px and full-size WebP), `max-width: 100%`, `aspect-ratio`, explicit width/height and lazy loading. |
+| Project pushed with multiple descriptive commits | 3/5 | Work is committed in small, single-purpose commits using a `feat:` / `fix:` / `style:` / `docs:` / `perf:` prefix (see `git log`). |
+| README contains all relevant information | 3/5 | Rewrote the README: structure, features, how to run, accessibility, SEO, security, testing, deployment and references. |
+| Changelog contains a record of development | 2/5 | Full Part 3 changelog with dates and file names (below). |
+
+Other problems I found myself while auditing Part 2:
 
 | Area | Problem found in Part 2 | Correction made in Part 3 |
 |------|-------------------------|---------------------------|
@@ -132,12 +146,26 @@ Every correction below is also recorded, with dates, in the Changelog further do
 - Checks on blur, then live while typing; clear error message under each field, `aria-invalid`, red/green borders, and an error summary that focuses the first invalid field.
 - Rules: required fields; name letters only (2-60); valid e-mail pattern; South African phone number (`076 248 1717` or `+27 76 248 1717`); quantity 1-500 whole number; date not in the past; message 10-1000 characters with live counter; one radio option; consent ticked.
 - **AJAX submission:** after validation the data is sent with `fetch()` to the form service without reloading the page; the button shows a loading spinner and a status line reports success or failure. If sending fails, the visitor is given the WhatsApp number and e-mail address instead, and on the contact page the compiled e-mail can still be sent with one click.
-- The recipient e-mail address is set in one place: `RECIPIENT_EMAIL` at the top of `js/forms.js`.
+- The recipient e-mail address (`360waving@gmail.com`) is set in one place: `RECIPIENT_EMAIL` at the top of `js/forms.js` (and in each form's `action` URL).
+- Delivery is a flat **R80 per order**, set once as `DELIVERY_FEE` in `js/main.js`; it is added in the cart, the WhatsApp order message and the enquiry quote.
 
 ### 5. GitHub, README and deployment
 - Work is committed in small steps with descriptive messages (see `git log`).
 - This README was updated with Part 3 information, the changelog (including Part 2 feedback corrections) and the references.
 - **Deployment:** the site is plain static files, so it deploys to Netlify by importing the GitHub repository (Add new site > Import an existing project > publish directory `/`, no build command), or to GitHub Pages (Settings > Pages > Deploy from branch `main`, folder `/root`). After deploying, replace `https://360waving.netlify.app` in the HTML files, `sitemap.xml` and `robots.txt` with the real address if it differs.
+
+### How to run the site
+1. Download or clone the repository: `git clone https://github.com/Cebo1717/ST105153378_WEB-D-PART-2.git`
+2. Open `index.html` in a browser. It also works by double-clicking, because `js/data-fallback.js` holds a copy of the JSON data. For the full behaviour use a local server, for example VS Code Live Server or `python -m http.server`, then visit `http://localhost:8000`.
+3. An internet connection is needed for the Google Fonts, the Leaflet map tiles and sending the forms.
+
+### Accessibility
+Skip-to-content link; one `<h1>` per page; every image has `alt` text; labelled form fields with `aria-describedby` error messages and `aria-invalid`; keyboard support for the menu, accordion, tabs, modals and lightbox; visible `:focus-visible` outlines; `aria-live` status messages for search results, errors and the cart; native `<dialog>` modals that trap focus and close with Esc; colour contrast of gold (#d4af37) text on black is above 9:1; animations disabled for *prefers-reduced-motion*.
+
+### Known limitations
+- The form e-mail relay (FormSubmit) needs a one-time confirmation click in the inbox of the recipient address. If it is not confirmed, or the visitor is offline, the page falls back to WhatsApp / the compiled `mailto:` e-mail.
+- The cart is saved only in the visitor's own browser (`localStorage`); orders are completed on WhatsApp, because there is no back-end or payment gateway in this module.
+- The bulk-discount tiers (10% from 10 units, 15% from 25 units) in the enquiry quote are example values.
 
 ### Testing done
 Tested in Chromium at 1280 px and 375 px: all pages load with no console errors; no horizontal scroll at 375 px; cart add/change/remove/persist after reload; product search, filter and sort; FAQ accordion and search; tabs; lightbox with keyboard; form validation (empty, invalid and valid data), enquiry quote and compiled e-mail; mobile menu.
@@ -219,6 +247,12 @@ From WEDE5020 Part 1 Marking Rubric:
 | 2026-10-27 | SEO: unique titles, descriptions and keywords per page, canonical URLs, Open Graph/Twitter tags, JSON-LD structured data (Store, FAQPage), `robots.txt`, `sitemap.xml`, custom `404.html`, internal links with descriptive anchors. |
 | 2026-10-27 | Security: Content-Security-Policy and referrer meta tags, `_headers` file, honeypot spam field, no `innerHTML` for data, input length limits. |
 | 2026-10-27 | Bug fix found while testing: validation errors now clear while typing instead of on blur, because the layout shift on blur made the next click on a radio button or checkbox fail. |
+| 2026-10-27 | Set the business e-mail to `360waving@gmail.com` in `js/forms.js`, both form `action` URLs, the Contact page, FAQ and structured data. |
+| 2026-10-27 | Added a flat R80 delivery fee: `DELIVERY_FEE` in `js/main.js`, shown as subtotal / delivery / total in the cart, in the WhatsApp message, in the enquiry quote and in the FAQ delivery answer. |
+| 2026-10-27 | **Part 2 feedback (images 4/5):** generated 480 px WebP variants and added `srcset`/`sizes` to product cards, quick view, gallery, home and guide images (`js/products.js`, `gallery.html`, `index.html`, `how-to-get-waves.html`). |
+| 2026-10-27 | **Part 2 feedback (pseudo-classes 8/10, colour 4/5):** CSS section 15 - added structural, state and form pseudo-classes and pseudo-elements, branded `::selection`, scrollbar, glows and gradients. |
+| 2026-10-27 | **Part 2 feedback (media queries 9/10, navigation 4/5):** CSS section 16 - breakpoints at 1400, 768 and 480 px, landscape, touch (`hover: none`), high-contrast and print rules; hamburger menu now collapses at 768 px with an open animation. |
+| 2026-10-27 | Fixed pitfalls found in testing: `[hidden]` attribute overridden by `.btn` display rules (Load more button never hid), visited-link colour affecting gold buttons, product images cropped by `object-fit: cover` (now `contain`). |
 | 2026-10-27 | Updated this README: structure, Part 3 documentation, keyword research, off-page SEO plan, changelog, references. |
 
 ### Part 2 (CSS Styling and Responsive Design)
