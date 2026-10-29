@@ -32,10 +32,9 @@
 │   ├── main.js              Helpers, mobile nav, scroll-reveal, back-to-top, shopping cart
 │   ├── products.js          Dynamic product rendering, search, filter, sort, quick-view modal
 │   ├── ui.js                Accordion, tabs, lightbox gallery, "load more" wave tips
-│   ├── map.js               Leaflet maps + geolocation distance
+│   ├── map.js               Google Maps (free embed, or full API with a key) + geolocation distance
 │   ├── forms.js             Form validation, AJAX submission, enquiry response, e-mail compiler
-│   ├── data-fallback.js     Copy of the JSON used if fetch() is blocked (e.g. opening from file://)
-│   └── vendor/leaflet/      Leaflet 1.9.4 map library, stored locally (no CDN needed)
+│   └── data-fallback.js     Copy of the JSON used if fetch() is blocked (e.g. opening from file://)
 └── IMG/                     Optimised WebP images with descriptive file names + icons
     └── screenshots/         Desktop / Tablet / Mobile evidence (PDF + PNG)
 ```
@@ -78,7 +77,7 @@ Other problems I found myself while auditing Part 2:
 | **Accordion** | `faq.html` (`js/ui.js`) | Each question is a `<button aria-expanded>` that opens its answer with a height animation. Keyboard: Enter/Space, Up/Down, Home/End. "Expand all / Collapse all" buttons and a live search box that filters questions. Questions can be linked directly, e.g. `faq.html#delivery`. Marked up with FAQ structured data. |
 | **Tabs** | `about.html` (`js/ui.js`) | Mission / Vision / Values / Audience in an ARIA tab list. Left/Right arrow keys, Home/End. |
 | **Modals** | Cart, product quick view, lightbox (`js/main.js`, `products.js`, `ui.js`) | Built on the native `<dialog>` element: focus is trapped, Esc closes, clicking the backdrop closes. |
-| **Interactive maps** | `about.html` and `contact.html` (`js/map.js`) | **Leaflet 1.9.4** (stored in `js/vendor/leaflet/`, so it works without a CDN) with CARTO dark tiles built from OpenStreetMap data, an automatic OpenStreetMap tile backup, and a plain OpenStreetMap embed if the library cannot run: custom gold marker with popup, a circle for the Durban same-day delivery area, and (contact page) a "How far am I from you?" button using the **Geolocation API** and the Haversine formula to show the distance from the Durban base. A text link is shown if the map cannot load. |
+| **Interactive maps** | `about.html` and `contact.html` (`js/map.js`) | **Google Maps** of the Durban base. Without a key it uses Google's free embedded map (drag, zoom, satellite view, open in Google Maps). When a Maps JavaScript API key is pasted into `GOOGLE_MAPS_API_KEY` at the top of `js/map.js`, it switches to the full API: dark-styled map, gold marker with an info window, a 15 km same-day delivery circle and a marker for the visitor. On the contact page, "How far am I from you?" uses the **Geolocation API** and the Haversine formula to show the distance and a **Get directions on Google Maps** link. |
 | **Animations and transitions** | `style.css` section 13, `js/main.js` | Scroll-reveal fade-ups using `IntersectionObserver`, card hover lifts, animated accordion icon, modal zoom-in, cart badge "bump", toast pop-up, logo spin on hover, button loading spinner. All animation is switched off for visitors with *prefers-reduced-motion*. |
 | **Advanced DOM manipulation** | all `js/*.js` | Elements are created with `createElement`/`textContent` (never `innerHTML` with data), event delegation on the gallery, `IntersectionObserver`, `URLSearchParams` (e.g. `products.html?category=kits`), `localStorage`, live character counters, show/hide of form fields depending on the chosen enquiry type. |
 | **Gallery + lightbox** | `gallery.html`, home page, guide page (`js/ui.js`) | 9-photo responsive grid. Clicking a photo opens a full-size viewer with Previous / Next / Close buttons, Left/Right/Esc keys, swipe on touch screens, caption and "Image 3 of 9" counter. Without JavaScript the links simply open the image. |
@@ -122,7 +121,7 @@ Other problems I found myself while auditing Part 2:
 
 - **Backlinks:** list 360WAVING on free South African business directories and Google Business Profile; ask local barbershops and wave creators for a link back in exchange for product features; submit the guide page to wave-culture communities; link the live site from the GitHub repository and the developer profile.
 - **Social media:** footer links to Instagram, TikTok and Facebook (`rel="me"`) and Open Graph tags so shared links show the logo and description. Each tutorial video can end with a link to `how-to-get-waves.html`.
-- **Local SEO:** Durban/KwaZulu-Natal in titles, descriptions and headings; `LocalBusiness` structured data with address region, geo-coordinates, opening hours and phone number; an interactive map; consistent name, address and phone number everywhere; Google Business Profile with the same details.
+- **Local SEO:** Durban/KwaZulu-Natal in titles, descriptions and headings; `LocalBusiness` structured data with address region, geo-coordinates, opening hours and phone number; an interactive Google Map; consistent name, address and phone number everywhere; Google Business Profile with the same details.
 
 **3.3 Additional requests**
 
@@ -130,8 +129,8 @@ Other problems I found myself while auditing Part 2:
 |------|----------------|
 | `robots.txt` | Allows all crawlers, blocks `404.html`, and points to the sitemap. |
 | `sitemap.xml` | Lists all 8 public pages with last-modified date, change frequency and priority. |
-| Page speed | Images reduced ~85%, lazy loading, `defer` on every script, font `preconnect`, cache headers in `_headers`, no large frameworks (plain JavaScript; only Leaflet loads, and only on the two map pages). |
-| Security | Content-Security-Policy meta tag (only this site, Google Fonts, Leaflet CDN, OpenStreetMap tiles and the form service are allowed); referrer policy; `rel="noopener noreferrer"` on external links; no `innerHTML` with user data (prevents XSS); hidden honeypot field against spam bots; input length limits; HTTPS and extra headers (`X-Content-Type-Options`, `X-Frame-Options`, HSTS, Permissions-Policy) via `_headers` on Netlify. |
+| Page speed | Images reduced ~85%, lazy loading, `defer` on every script, font `preconnect`, cache headers in `_headers`, no large frameworks (plain JavaScript; the map loads only on the two map pages). |
+| Security | Content-Security-Policy meta tag (only this site, Google Fonts, Google Maps and the form service are allowed); referrer policy; `rel="noopener noreferrer"` on external links; no `innerHTML` with user data (prevents XSS); hidden honeypot field against spam bots; input length limits; HTTPS and extra headers (`X-Content-Type-Options`, `X-Frame-Options`, HSTS, Permissions-Policy) via `_headers` on Netlify. |
 
 ### 4. Forms
 
@@ -158,7 +157,7 @@ Other problems I found myself while auditing Part 2:
 ### How to run the site
 1. Download or clone the repository: `git clone https://github.com/Cebo1717/ST105153378_WEB-D-PART-2.git`
 2. Open `index.html` in a browser. It also works by double-clicking, because `js/data-fallback.js` holds a copy of the JSON data. For the full behaviour use a local server, for example VS Code Live Server or `python -m http.server`, then visit `http://localhost:8000`.
-3. An internet connection is needed for the Google Fonts, the map tiles and sending the forms (the Leaflet library itself is included in the project).
+3. An internet connection is needed for the Google Fonts, the Google Map and sending the forms .
 
 ### Accessibility
 Skip-to-content link; one `<h1>` per page; every image has `alt` text; labelled form fields with `aria-describedby` error messages and `aria-invalid`; keyboard support for the menu, accordion, tabs, modals and lightbox; visible `:focus-visible` outlines; `aria-live` status messages for search results, errors and the cart; native `<dialog>` modals that trap focus and close with Esc; colour contrast of gold (#d4af37) text on black is above 9:1; animations disabled for *prefers-reduced-motion*.
@@ -255,6 +254,7 @@ From WEDE5020 Part 1 Marking Rubric:
 | 2026-10-27 | **Part 2 feedback (media queries 9/10, navigation 4/5):** CSS section 16 - breakpoints at 1400, 768 and 480 px, landscape, touch (`hover: none`), high-contrast and print rules; hamburger menu now collapses at 768 px with an open animation. |
 | 2026-10-27 | Fixed pitfalls found in testing: `[hidden]` attribute overridden by `.btn` display rules (Load more button never hid), visited-link colour affecting gold buttons, product images cropped by `object-fit: cover` (now `contain`). |
 | 2026-10-29 | **Map fix:** bundled Leaflet 1.9.4 locally in `js/vendor/leaflet/` instead of loading it from a CDN; switched to CARTO dark tiles (work when the page is opened from a file) with automatic OpenStreetMap backup; added an OpenStreetMap embed fallback; tightened the Content-Security-Policy to `script-src 'self'`; map now recalculates its size after load/resize; fixed popup title and marker text. |
+| 2026-10-29 | **Map change:** replaced Leaflet with Google Maps in `js/map.js` (free embedded map by default, full Maps JavaScript API when a key is added); removed the bundled Leaflet files; updated the Content-Security-Policy for Google Maps; Contact page distance button now links to Google Maps directions. |
 | 2026-10-27 | Updated this README: structure, Part 3 documentation, keyword research, off-page SEO plan, changelog, references. |
 
 ### Part 2 (CSS Styling and Responsive Design)
@@ -293,9 +293,7 @@ From WEDE5020 Part 1 Marking Rubric:
 - MDN Web Docs (n.d.) *Content Security Policy (CSP)*. Available at: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP (Accessed: 27 October 2026).
 - MDN Web Docs (n.d.) *prefers-reduced-motion*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion (Accessed: 27 October 2026).
 - MDN Web Docs (n.d.) *CSS Flexible Box Layout*, *CSS Grid Layout*, *Using media queries*, *CSS Custom Properties*. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS (Accessed: 27 October 2026).
-- Agafonkin, V. (n.d.) *Leaflet 1.9.4 - an open-source JavaScript library for interactive maps*. Available at: https://leafletjs.com (Accessed: 29 October 2026).
-- CARTO (n.d.) *Basemap attribution and usage*. Available at: https://carto.com/attributions (Accessed: 29 October 2026).
-- OpenStreetMap Foundation (n.d.) *Tile usage policy and copyright*. Available at: https://www.openstreetmap.org/copyright (Accessed: 27 October 2026).
+- Google (n.d.) *Maps JavaScript API and Maps Embed*. Available at: https://developers.google.com/maps/documentation (Accessed: 29 October 2026).
 - OWASP Foundation (n.d.) *Cross Site Scripting Prevention Cheat Sheet*. Available at: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html (Accessed: 27 October 2026).
 - Schema.org (n.d.) *Store*, *FAQPage* and *LocalBusiness*. Available at: https://schema.org (Accessed: 27 October 2026).
 - Sitemaps.org (n.d.) *Sitemaps XML format*. Available at: https://www.sitemaps.org/protocol.html (Accessed: 27 October 2026).

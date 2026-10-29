@@ -20,7 +20,7 @@
   <meta property="og:locale" content="en_ZA">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Security: Content Security Policy + referrer policy (only trusted sources may load) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tile.openstreetmap.org https://*.basemaps.cartocdn.com; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://maps.gstatic.com https://maps.googleapis.com https://*.ggpht.com https://*.google.com; connect-src 'self' https://formsubmit.co https://maps.googleapis.com; form-action 'self' https://formsubmit.co; frame-src https://maps.google.com https://www.google.com; worker-src blob:; object-src 'none'; base-uri 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#0b0b0b">
   <link rel="icon" type="image/png" href="IMG/favicon.png">
@@ -29,7 +29,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="js/vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -103,12 +102,12 @@
     </div>
   </section>
 
-  <!-- Interactive map (Leaflet + OpenStreetMap) - js/map.js -->
+  <!-- Interactive Google Map - js/map.js -->
   <section aria-labelledby="map-heading">
     <h2 id="map-heading">Find us in Durban</h2>
-    <p>We are based in Durban, KwaZulu-Natal and deliver nationwide. The gold circle shows our same-day delivery area. Click the map to zoom with your mouse wheel.</p>
+    <p>We are based in Durban, KwaZulu-Natal and deliver nationwide. Drag the map to move around, use + / - to zoom, or switch to satellite view. Same-day delivery covers about 15 km around our Durban base.</p>
     <div id="map" class="map" role="region" aria-label="Map showing the 360WAVING base in Durban, KwaZulu-Natal"></div>
-    <p class="cart-note"><a href="https://www.openstreetmap.org/?mlat=-29.8587&amp;mlon=31.0218#map=11/-29.8587/31.0218" target="_blank" rel="noopener noreferrer">Open Durban in OpenStreetMap</a> · Need directions or a delivery quote? <a href="contact.html">Contact us</a>.</p>
+    <p class="cart-note"><a href="https://www.google.com/maps/search/?api=1&amp;query=-29.8587,31.0218" target="_blank" rel="noopener noreferrer">Open Durban in Google Maps</a> · Need directions or a delivery quote? <a href="contact.html">Contact us</a>.</p>
   </section>
 
   <h2>Brand Identity</h2>
@@ -156,7 +155,6 @@
   <p class="copyright">&copy; <span data-year>2026</span> 360WAVING - All Rights Reserved | Durban, KZN | Website by Z Tembe (ST10515337)</p>
 </footer>
 
-  <script src="js/vendor/leaflet/leaflet.js" defer></script>
   <script src="js/data-fallback.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/ui.js" defer></script>
