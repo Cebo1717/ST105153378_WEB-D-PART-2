@@ -19,7 +19,9 @@ window.__WAVING_DATA__ = {
     "protect"
    ],
    "width": 800,
-   "height": 800
+   "height": 800,
+   "thumb": "IMG/silky-velvet-durag-360-waves-480.webp",
+   "thumbWidth": 480
   },
   {
    "id": "wave-cap",
@@ -38,7 +40,9 @@ window.__WAVING_DATA__ = {
     "double layer"
    ],
    "width": 800,
-   "height": 800
+   "height": 800,
+   "thumb": "IMG/double-layer-wave-cap-480.webp",
+   "thumbWidth": 480
   },
   {
    "id": "brush",
@@ -61,7 +65,9 @@ window.__WAVING_DATA__ = {
     "720"
    ],
    "width": 900,
-   "height": 600
+   "height": 600,
+   "thumb": "IMG/360-wave-brush-hard-medium-soft-480.webp",
+   "thumbWidth": 480
   },
   {
    "id": "pomade",
@@ -81,7 +87,9 @@ window.__WAVING_DATA__ = {
     "moisturize"
    ],
    "width": 900,
-   "height": 600
+   "height": 600,
+   "thumb": "IMG/wave-pomade-shine-and-hold-480.webp",
+   "thumbWidth": 480
   },
   {
    "id": "oil",
@@ -102,7 +110,9 @@ window.__WAVING_DATA__ = {
     "jojoba"
    ],
    "width": 900,
-   "height": 600
+   "height": 600,
+   "thumb": "IMG/wave-hair-oil-and-moisturizer-480.webp",
+   "thumbWidth": 480
   },
   {
    "id": "shampoo",
@@ -121,7 +131,9 @@ window.__WAVING_DATA__ = {
     "clean"
    ],
    "width": 900,
-   "height": 600
+   "height": 600,
+   "thumb": "IMG/wave-friendly-shampoo-and-conditioner-480.webp",
+   "thumbWidth": 480
   },
   {
    "id": "kit",
@@ -144,7 +156,9 @@ window.__WAVING_DATA__ = {
     "mirror"
    ],
    "width": 800,
-   "height": 800
+   "height": 800,
+   "thumb": "IMG/8-in-1-360-wave-kit-480.webp",
+   "thumbWidth": 480
   }
  ],
  "tips": [

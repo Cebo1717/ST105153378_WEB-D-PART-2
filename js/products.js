@@ -38,7 +38,7 @@
     return h('li', { class: 'product-card', 'data-id': p.id },
       h('h3', {}, p.name, ' ', h('span', { class: 'price' }, money(p.price))),
       h('p', { class: 'variants' }, p.variants),
-      h('img', { src: p.image, alt: p.alt, width: p.width, height: p.height, loading: 'lazy' }),
+      h('img', { src: p.thumb, srcset: p.thumb + ' 480w, ' + p.image + ' ' + p.width + 'w', sizes: '(max-width: 600px) 90vw, (max-width: 900px) 45vw, 340px', alt: p.alt, width: p.width, height: p.height, loading: 'lazy' }),
       h('p', {}, p.short),
       h('div', { class: 'card-actions' }, add, quickView)
     );
@@ -116,7 +116,7 @@
         h('button', { type: 'button', class: 'icon-btn', 'aria-label': 'Close quick view', onclick: () => dialog.close() }, '✕')
       ),
       h('div', { class: 'quickview' },
-        h('img', { src: p.image, alt: p.alt, width: p.width, height: p.height }),
+        h('img', { src: p.image, srcset: p.thumb + ' 480w, ' + p.image + ' ' + p.width + 'w', sizes: '(max-width: 700px) 85vw, 320px', alt: p.alt, width: p.width, height: p.height }),
         h('div', {},
           h('p', { class: 'price-large' }, money(p.price)),
           h('p', { class: 'variants' }, p.variants),

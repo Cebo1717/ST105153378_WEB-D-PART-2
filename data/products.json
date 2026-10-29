@@ -17,7 +17,9 @@
       "protect"
     ],
     "width": 800,
-    "height": 800
+    "height": 800,
+    "thumb": "IMG/silky-velvet-durag-360-waves-480.webp",
+    "thumbWidth": 480
   },
   {
     "id": "wave-cap",
@@ -36,7 +38,9 @@
       "double layer"
     ],
     "width": 800,
-    "height": 800
+    "height": 800,
+    "thumb": "IMG/double-layer-wave-cap-480.webp",
+    "thumbWidth": 480
   },
   {
     "id": "brush",
@@ -59,7 +63,9 @@
       "720"
     ],
     "width": 900,
-    "height": 600
+    "height": 600,
+    "thumb": "IMG/360-wave-brush-hard-medium-soft-480.webp",
+    "thumbWidth": 480
   },
   {
     "id": "pomade",
@@ -79,7 +85,9 @@
       "moisturize"
     ],
     "width": 900,
-    "height": 600
+    "height": 600,
+    "thumb": "IMG/wave-pomade-shine-and-hold-480.webp",
+    "thumbWidth": 480
   },
   {
     "id": "oil",
@@ -100,7 +108,9 @@
       "jojoba"
     ],
     "width": 900,
-    "height": 600
+    "height": 600,
+    "thumb": "IMG/wave-hair-oil-and-moisturizer-480.webp",
+    "thumbWidth": 480
   },
   {
     "id": "shampoo",
@@ -119,7 +129,9 @@
       "clean"
     ],
     "width": 900,
-    "height": 600
+    "height": 600,
+    "thumb": "IMG/wave-friendly-shampoo-and-conditioner-480.webp",
+    "thumbWidth": 480
   },
   {
     "id": "kit",
@@ -142,6 +154,8 @@
       "mirror"
     ],
     "width": 800,
-    "height": 800
+    "height": 800,
+    "thumb": "IMG/8-in-1-360-wave-kit-480.webp",
+    "thumbWidth": 480
   }
 ]
