@@ -2,6 +2,5 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
-Disallow: /data-fallback
 
-Sitemap: https://360waving.netlify.app/sitemap.xml
+Sitemap: https://360wavinngg.netlify.app/sitemap.xml
